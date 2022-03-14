@@ -1,3 +1,12 @@
+"""
+## Problem 1
+Use Factory Method pattern to create 3 different classes Circle, Square and Triangle of type
+Shape having a method Draw with some implementation of your choice. Have a ShapeFactory
+class and a Client class and allow the Client to ask the factory to create some concrete shape
+and to call its method Draw. You can decide what should be the client input and how the factory
+class should determine which shape to create.
+"""
+
 from abc import ABC, abstractmethod
 import turtle
 from math import pi, sqrt

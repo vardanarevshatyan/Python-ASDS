@@ -1,3 +1,13 @@
+"""
+## Problem 2
+Use Factory Method pattern to create 2 different classes PersonalAccount and
+BusinessAccount of type BankAccount having a method CreateAccount with some
+implementation of your choice. Have a BankAccountFactory class and a Client class and allow
+the Client to ask the factory to create an account. The type of the account should be determined
+based on the client’s input. You can decide what should be the client input and how the factory
+class should determine what type of an account to create.
+"""
+
 from abc import ABC, abstractmethod
 
 

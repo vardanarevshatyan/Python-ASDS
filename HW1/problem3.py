@@ -1,3 +1,8 @@
+"""
+## Problem 3
+Use the diagram below and function logic of your choice to apply the Abstract Factory pattern.
+"""
+
 from abc import ABC, abstractmethod
 
 

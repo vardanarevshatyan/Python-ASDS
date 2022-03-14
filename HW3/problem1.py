@@ -1,3 +1,11 @@
+"""
+## Problem 1
+Use adapter pattern and classes of your choice. Create a structure where you have 1-2 adaptees that have a method that
+returns some text in spanish. Have an adapter which will have a method that translates the text to english. Have
+examples of the usage of your class structure.
+"""
+
+
 class EnglishSpeaker:
     """Something in English. This is the target class."""
     @staticmethod

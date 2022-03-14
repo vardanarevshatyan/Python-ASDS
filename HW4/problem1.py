@@ -1,3 +1,10 @@
+"""
+## Problem 1
+Let say you want to send a message to someone. You have 2 options - you can Email the message or SMS the message to the
+corresponding person. So, you have two options to send the message and the client side code will use one of the
+implementations to send the message to the corresponding person. Use Bridge Design Pattern to implement the logic with
+classes of your choice and make sure to test the implementation with some concrete objects.
+"""
 from abc import ABC, abstractmethod
 from time import sleep
 

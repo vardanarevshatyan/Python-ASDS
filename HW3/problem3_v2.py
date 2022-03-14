@@ -1,3 +1,11 @@
+"""
+## Problem 3
+Use singleton pattern and classes of your choice. Create a structure where you have some resource that has states busy
+and free and 3 users that try to use the resource and change the state to busy while they are using it. The resource
+should be singleton. Implement using 2 different methods for singleton implementation that we have discussed.
+"""
+
+
 class ClassicLogger:
     __shared_instance = 'initial'
 

@@ -1,3 +1,9 @@
+"""
+## Problem 2
+Follow the diagram below and use Composite Design Pattern to implement and test the logic. Add any other classes of your
+choice. The top of your hierarchy will be the box which will contain Instrument Collection which will contain
+instruments.
+"""
 from abc import ABC, abstractmethod
 
 

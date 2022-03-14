@@ -1,6 +1,14 @@
+"""
+## Problem 2
+Use prototype design pattern and classes of your choice. create an abstract class Shape and
+concrete classes extending the Shape class: Circle, Square and Rectangle. Define a class
+ShapeCache which stores shape objects in a dictionary and returns their clones when
+requested. Create some objects and do some operations to test your classes.
+"""
 from abc import ABC, abstractmethod
 from copy import copy
 from time import sleep, perf_counter
+
 
 class Shape(ABC):
     @abstractmethod

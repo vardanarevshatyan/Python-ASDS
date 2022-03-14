@@ -1,3 +1,9 @@
+"""
+## Problem 1
+You know that each BankAccount object has attributes id, balance and rate. Use builder pattern
+and any extra classes and methods that you may need to realize the creation of a BankAccount type
+object. Create some objects and do some operations to test your classes.
+"""
 from abc import ABC, abstractmethod
 
 

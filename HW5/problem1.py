@@ -1,3 +1,12 @@
+"""
+## Problem 1
+Create a Person class which will have attributes Name, Last Name, Email and Age. Use the Decorator pattern and any
+additional classes of your choice to implement the following logic: If the Person is a child (age<14), s/he wants the
+information about them printed as follows: *** &&& Name - Last Name - Email &&& ***. Otherwise, print the information
+like this: &&& Name - Last Name - Email &&&.
+"""
+
+
 class Person:
     def __init__(self, name, surname, email, age):
         self.name = name

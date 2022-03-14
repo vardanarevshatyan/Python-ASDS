@@ -1,3 +1,11 @@
+"""
+## Problem 2: extra
+Implement the "slow down" logic. Create a function that will print some text. Create a decorator that takes an argument
+time_to_sleep, which will be the number of seconds to sleep before executing the function. Decorate the function with
+the described decorator and test the code with an example. You are free to add any additional logic to the function or
+the decorator.
+"""
+
 from time import sleep, perf_counter
 
 

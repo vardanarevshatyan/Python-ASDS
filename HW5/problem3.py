@@ -1,3 +1,12 @@
+"""
+## Problem 3
+Suppose that you want to order some food with a delivery. Use Facade Design Pattern and classes of your choice to
+simulate a scenario of ordering using an application, you can have a dispatcher, a restaurant, a delivery guy and other
+actors of your choice. The most important thing is that you should have some method which will organize the priority of
+the steps that need to be taken when you order the delivery and will "ask" the right parties to do their job. This
+should happen without intervention of the client.
+"""
+
 from time import sleep
 
 

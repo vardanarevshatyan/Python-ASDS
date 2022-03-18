@@ -12,28 +12,28 @@ class LoggerBorg:
 
     def __init__(self):
         self.__dict__ = self.__state  # stores class attributes
-        self.state = 'free'
+        self.state = "free"
         self.user = None
 
     @staticmethod
     def log():
-        print('Logging information, please wait...')
-        sleep(.5)
-        print('Done.')
+        print("Logging information, please wait...")
+        sleep(0.5)
+        print("Done.")
 
     def connect(self, name):
-        if self.state == 'free':
-            self.state = 'busy'
+        if self.state == "free":
+            self.state = "busy"
             self.user = name
-            print(f'User {self.user} connected to the LoggerBorg.')
+            print(f"User {self.user} connected to the LoggerBorg.")
         else:
-            print(f'{name} unable to connect. Logger is busy. Try later.')
+            print(f"{name} unable to connect. Logger is busy. Try later.")
 
     def release(self):
-        self.state = 'free'
+        self.state = "free"
         user = self.user
         self.user = None
-        print(f'User {user} released the Borg.')
+        print(f"User {user} released the Borg.")
 
 
 class User:
@@ -54,12 +54,12 @@ class User:
             self.logger = None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     borg = LoggerBorg()
 
-    user1 = User('ImportantUser')
-    user2 = User('KittyCat')
-    user3 = User('Anonymous')
+    user1 = User("ImportantUser")
+    user2 = User("KittyCat")
+    user3 = User("Anonymous")
 
     user1.get_logger(borg)
     user1.log()

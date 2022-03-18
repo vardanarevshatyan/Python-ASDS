@@ -19,7 +19,7 @@ class Pen(Instrument):
         self.price_tag = price_tag
 
     def make(self):
-        print(f'{self.price_tag} {self.name} to write.')
+        print(f"{self.price_tag} {self.name} to write.")
 
 
 class Pencil(Instrument):
@@ -28,7 +28,7 @@ class Pencil(Instrument):
         self.price_tag = price_tag
 
     def make(self):
-        print(f'{self.price_tag} {self.name} to draw.')
+        print(f"{self.price_tag} {self.name} to draw.")
 
 
 class Rubber(Instrument):
@@ -37,7 +37,7 @@ class Rubber(Instrument):
         self.price_tag = price_tag
 
     def make(self):
-        print(f'{self.price_tag} {self.name} to erase.')
+        print(f"{self.price_tag} {self.name} to erase.")
 
 
 class Box(Instrument):
@@ -57,30 +57,29 @@ class Box(Instrument):
         return self._instruments[index]
 
     def make(self):
-        print(f'{self.price_tag} {self.name} box is used, containing: ')
+        print(f"{self.price_tag} {self.name} box is used, containing: ")
         for instrument in self._instruments:
-            print('\t', end="")
+            print("\t", end="")
             instrument.make()
 
 
-if __name__ == '__main__':
-    box1 = Box(name='FancyBox', price_tag='Expensive')
-    box2 = Box(name='OkayBox', price_tag='Average Quality')
-    pen1 = Pen(name='FancyBlackPen', price_tag='Very Expensive')
-    pen2 = Pen(name='AveragePen', price_tag='Pretty Cheap')
-    pencil1 = Pencil(name='LuxuriousPencil', price_tag='Super Expensive')
-    pencil2 = Pencil(name='ModeratePencil', price_tag='DecentQuality')
-    rubber1 = Rubber(name='SolidRubber', price_tag='Decent Quality')
-    rubber2 = Rubber(name='CouldBeBetterRubber', price_tag='Super Cheap')
+if __name__ == "__main__":
+    box1 = Box(name="FancyBox", price_tag="Expensive")
+    box2 = Box(name="OkayBox", price_tag="Average Quality")
+    pen1 = Pen(name="FancyBlackPen", price_tag="Very Expensive")
+    pen2 = Pen(name="AveragePen", price_tag="Pretty Cheap")
+    pencil1 = Pencil(name="LuxuriousPencil", price_tag="Super Expensive")
+    pencil2 = Pencil(name="ModeratePencil", price_tag="DecentQuality")
+    rubber1 = Rubber(name="SolidRubber", price_tag="Decent Quality")
+    rubber2 = Rubber(name="CouldBeBetterRubber", price_tag="Super Cheap")
 
     box1.add(pen1)
     box1.add(pencil1)
     box1.add(rubber1)
     box1.make()
-    print('\n')
+    print("\n")
     box2.add(pen2)
     box2.add(pencil2)
     box2.add(rubber2)
     box2.make()
-
 

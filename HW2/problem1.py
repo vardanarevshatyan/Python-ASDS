@@ -37,8 +37,8 @@ class GoodBuilder(Builder):
     @property
     def account(self) -> None:
         account = self._account
-        id = self._account.id
-        print('Account id: ', id)
+        acc_id = self._account.id
+        print("Account id: ", acc_id)
         self.create_default_account()
         return account
 
@@ -84,7 +84,7 @@ class BankAccount:
     @property
     def id(self):
         if self._id is None:
-            print('Error! Identification failed.')
+            print("Error! Identification failed.")
         return self._id
 
     @id.setter
@@ -108,12 +108,12 @@ class BankAccount:
         self._rate = value
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     director = Director()
     builder = GoodBuilder()
     director.builder = builder
-    director.create_full_account('good_account_1334', 50000.0, .2)
+    director.create_full_account("good_account_1334", 50000.0, 0.2)
     good_account = builder.account
-    director.create_faulty_account('this_will_go_wrong', 10000.0, .1)
+    director.create_faulty_account("this_will_go_wrong", 10000.0, 0.1)
     bad_account = builder.account
 

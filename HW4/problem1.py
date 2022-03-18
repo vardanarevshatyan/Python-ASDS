@@ -45,16 +45,16 @@ class EmailSender(Sender):
         self._contact = None
 
     def send_message(self, text):
-        print(f'Sending to {self._contact}...')
+        print(f"Sending to {self._contact}...")
         sleep(0.7)
-        print(f'Sent: {text}')
+        print(f"Sent: {text}")
 
     @property
     def contact(self):
         if self._contact is None:
-            print('You have not chosen a contact.')
+            print("You have not chosen a contact.")
             return
-        print(f'Retrieving the email address: {self._contact}')
+        print(f"Retrieving the email address: {self._contact}")
         return self._contact
 
     @contact.setter
@@ -67,16 +67,16 @@ class SMSSender(Sender):
         self._contact = None
 
     def send_message(self, text):
-        print(f'Sending to {self._contact}...')
+        print(f"Sending to {self._contact}...")
         sleep(0.7)
-        print(f'Sent: {text}')
+        print(f"Sent: {text}")
 
     @property
     def contact(self):
         if self._contact is None:
-            print('You have not chosen a phone number.')
+            print("You have not chosen a phone number.")
             return
-        print(f'Retrieving the phone number: {self._contact}')
+        print(f"Retrieving the phone number: {self._contact}")
         return self._contact
 
     @contact.setter
@@ -85,22 +85,23 @@ class SMSSender(Sender):
 
 
 class Client:
-    senders = {'email': Messenger(EmailSender()),
-               'sms': Messenger(SMSSender())}
+    senders = {"email": Messenger(EmailSender()), "sms": Messenger(SMSSender())}
 
     @classmethod
     def send_message(cls, by, contact, text):
         messenger = cls.senders.get(by, None)
         if messenger is None:
-            print('Please choose a valid option.')
+            print("Please choose a valid option.")
             return
         messenger.send_message(contact, text)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     client = Client()
-    client.send_message('email', 'someone@gmail.com', 'Hey, I have a great job opportunity for you!')
-    client.senders['email'].get_contact()
-    client.send_message('sms', '+209145909', 'Hey Sam, how are u?')
-    client.senders['sms'].get_contact()
-    client.send_message('facebook', 'fb_id', 'Hiii!')
+    client.send_message(
+        "email", "someone@gmail.com", "Hey, I have a great job opportunity for you!"
+    )
+    client.senders["email"].get_contact()
+    client.send_message("sms", "+209145909", "Hey Sam, how are u?")
+    client.senders["sms"].get_contact()
+    client.send_message("facebook", "fb_id", "Hiii!")

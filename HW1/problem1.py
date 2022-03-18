@@ -14,21 +14,20 @@ from math import pi, sqrt
 
 class Shape(ABC):
     """Base class providing product interface."""
+
     @abstractmethod
     def __init__(self, length):
         self._length = length
 
-    """Simple implementations with Turtle."""
     @abstractmethod
     def draw(self, *args, **kwargs):
-        pass
+        """Simple implementations with Turtle."""
 
-    """Calculate the area of the geometric shape. Defined as property. It is here to add some variability to 
-    implementation. """
     @property
     @abstractmethod
     def area(self):
-        pass
+        """Calculate the area of the geometric shape. Defined as property. 
+            It is here to add some variability to implementation. """
 
 
 class Circle(Shape):
@@ -41,7 +40,7 @@ class Circle(Shape):
 
     @property
     def area(self):
-        return pi * self._length**2
+        return pi * self._length ** 2
 
 
 class Triangle(Shape):
@@ -65,7 +64,7 @@ class Square(Shape):
 
     def draw(self):
         t = turtle.Turtle()
-        for i in range(4):
+        for _ in range(4):
             t.forward(self._length)
             t.left(90)
 
@@ -76,9 +75,9 @@ class Square(Shape):
 
 class ShapeFactory:
     SHAPES = {
-        'circle': Circle,
-        'square': Square,
-        'triangle': Triangle,
+        "circle": Circle,
+        "square": Square,
+        "triangle": Triangle,
     }
 
     @classmethod
@@ -87,7 +86,6 @@ class ShapeFactory:
 
 
 class Client:
-
     @staticmethod
     def draw_shape(shape_name: str, length: int):
         shape = ShapeFactory.build(shape_name, length)
@@ -100,9 +98,9 @@ class Client:
         return shape.area
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     client = Client()
-    client.draw_shape('square', 100)
-    client.draw_shape('circle', 50)
-    client.draw_shape('triangle', 150)
-    print(client.get_shape_area('square', 100))
+    client.draw_shape("square", 100)
+    client.draw_shape("circle", 50)
+    client.draw_shape("triangle", 150)
+    print(client.get_shape_area("square", 100))

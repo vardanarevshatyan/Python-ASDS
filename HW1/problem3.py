@@ -20,22 +20,22 @@ class Checkbox(ABC):
 
 class WinButton(Button):
     def draw(self):
-        print('I draw Windows Button.')
+        print("I draw Windows Button.")
 
 
 class MacButton(Button):
     def draw(self):
-        print('I draw Mac Button.')
+        print("I draw Mac Button.")
 
 
 class WinCheckbox(Checkbox):
     def draw(self):
-        print('Windows checked.')
+        print("Windows checked.")
 
 
 class MacCheckbox(Checkbox):
     def draw(self):
-        print('Mac checked.')
+        print("Mac checked.")
 
 
 class GUIFactory(ABC):
@@ -79,7 +79,7 @@ class Application:
         self.button.draw()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     factory = MacFactory()
     app = Application(factory)
     app.create_ui()

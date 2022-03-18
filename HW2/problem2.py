@@ -34,7 +34,7 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, name=None, color=None):
-        sleep(.5)
+        sleep(0.5)
         super().__init__(name, color)
 
     @property
@@ -46,16 +46,16 @@ class Circle(Shape):
         self._name = value
 
     def draw(self):
-        print(f'Draw {self.color} {self.name}')
+        print(f"Draw {self.color} {self.name}")
 
 
 class Square(Shape):
     def __init__(self, name=None, color=None):
-        sleep(.5)
+        sleep(0.5)
         super().__init__(name, color)
 
     def draw(self):
-        print(f'Draw {self.color} {self.name}')
+        print(f"Draw {self.color} {self.name}")
 
     @property
     def name(self):
@@ -68,11 +68,11 @@ class Square(Shape):
 
 class Rectangle(Shape):
     def __init__(self, name=None, color=None):
-        sleep(.5)
+        sleep(0.5)
         super().__init__(name, color)
 
     def draw(self):
-        print(f'Draw {self.color} {self.name}')
+        print(f"Draw {self.color} {self.name}")
 
     @property
     def name(self):
@@ -94,28 +94,29 @@ class ShapeCache:
     @classmethod
     def load(cls):
         start = perf_counter()
-        circle = Circle(color='red')
-        print('Circle loaded.')
-        circle.name = 'funny_circle'
-        rect = Rectangle(color='green')
-        print('Rectangle loaded.')
-        rect.name = 'boo_rectangle'
-        square = Square(color='black')
-        print('Square loaded.')
-        square.name = 'spooky_square'
+        circle = Circle(color="red")
+        print("Circle loaded.")
+        circle.name = "funny_circle"
+        rect = Rectangle(color="green")
+        print("Rectangle loaded.")
+        rect.name = "boo_rectangle"
+        square = Square(color="black")
+        print("Square loaded.")
+        square.name = "spooky_square"
         end = perf_counter()
-        print('Expensive load: ', end-start)
+        print("Expensive load: ", end - start)
         cls.cache[circle.name] = circle
         cls.cache[rect.name] = rect
         cls.cache[square.name] = square
 
 
-if __name__ == '__main__':
-    #expensive load
+if __name__ == "__main__":
+    # expensive load
     ShapeCache.load()
     start = perf_counter()
-    circle = ShapeCache.get_shape('funny_circle')
-    sqr = ShapeCache.get_shape('spooky_square')
-    rect = ShapeCache.get_shape('boo_rectangle')
+    circle = ShapeCache.get_shape("funny_circle")
+    sqr = ShapeCache.get_shape("spooky_square")
+    rect = ShapeCache.get_shape("boo_rectangle")
     end = perf_counter()
-    print('From cache: ', end-start)
+    print("From cache: ", end - start)
+

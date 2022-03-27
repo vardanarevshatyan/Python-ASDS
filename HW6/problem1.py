@@ -22,7 +22,7 @@ class ImageService(ABC):
 class ImageLoader(ImageService):
     def load_image(self):
         # simulating the loading time...
-        rand_time = random.random()
+        rand_time = random.randint(1, 4)
         print("Loading the image...")
         sleep(rand_time)
         print("Image loaded successfully...")
@@ -37,12 +37,12 @@ class ImageLoaderProxy(ImageService):
     def __init__(self, loader: ImageService):
         self._service = loader
 
-    def handle_time(signum, frame):
+    def handle_time(self, signum, frame):
         raise TimeOutException
 
     def load_image(self):
-        signal.signal(signal.SIGALRM)
-        signal.alarm(0.5)
+        signal.signal(signal.SIGALRM, self.handle_time)
+        signal.alarm(2)
         try:
             self._service.load_image()
         except TimeOutException:
@@ -52,4 +52,6 @@ class ImageLoaderProxy(ImageService):
 
 if __name__ == "__main__":
     proxy = ImageLoaderProxy(ImageLoader())
-    proxy.load_image()
+    # simulating different loading times
+    for _ in range(5):
+        proxy.load_image()

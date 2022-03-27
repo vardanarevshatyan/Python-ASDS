@@ -6,3 +6,50 @@ images are not loaded after some fixed amount of time. Simulate this scenario wi
 your choice and using proxy design pattern principle
 """
 
+import signal
+from abc import ABC, abstractmethod
+from time import sleep, time
+
+from numpy import random
+
+
+class ImageService(ABC):
+    @abstractmethod
+    def load_image(self):
+        pass
+
+
+class ImageLoader(ImageService):
+    def load_image(self):
+        # simulating the loading time...
+        rand_time = random.random()
+        print("Loading the image...")
+        sleep(rand_time)
+        print("Image loaded successfully...")
+
+
+class TimeOutException(Exception):
+    pass
+
+
+# this will not work on windows ;(
+class ImageLoaderProxy(ImageService):
+    def __init__(self, loader: ImageService):
+        self._service = loader
+
+    def handle_time(signum, frame):
+        raise TimeOutException
+
+    def load_image(self):
+        signal.signal(signal.SIGALRM)
+        signal.alarm(0.5)
+        try:
+            self._service.load_image()
+        except TimeOutException:
+            print("Loading took too long!")
+            print("Proxy image is printed.")
+
+
+if __name__ == "__main__":
+    proxy = ImageLoaderProxy(ImageLoader())
+    proxy.load_image()

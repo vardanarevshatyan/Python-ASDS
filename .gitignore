@@ -132,3 +132,7 @@ dmypy.json
 *.pdf
 *.ipynb
 .vscode/
+*.jpg
+*.mp4
+*.png
+*.gif

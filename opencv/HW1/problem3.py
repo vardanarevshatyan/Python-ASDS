@@ -7,3 +7,4 @@ rescaled_img1 = cv.resize(img1, (int(width * scale_factor), int(height * scale_f
 
 cv.imshow("Pic1", img1)
 cv.imshow("Pic1_rescaled", rescaled_img1)
+cv.waitKey(0)

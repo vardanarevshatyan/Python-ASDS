@@ -15,14 +15,13 @@ capture = cv.VideoCapture("vid1.mp4")
 
 while True:
     frame_loaded, frame = capture.read()
-
-    if frame is not None:  # or if isTrue
+    if frame is not None:
         frame_rescaled = rescale_frame(frame, 0.5)
         cv.imshow("Video", frame)
         cv.imshow("Video_rescaled", frame_rescaled)
     else:
         print("empty frame")
-        exit(1)\
+        exit(1)
     if cv.waitKey(20) & 0xFF == ord("d"):
         break
 

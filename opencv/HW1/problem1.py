@@ -8,3 +8,5 @@ img3 = cv.imread("pic3.jpg")
 cv.imshow("pic1", img1)
 cv.imshow("pic2", img2)
 cv.imshow("pic3", img3)
+
+cv.waitKey(0)

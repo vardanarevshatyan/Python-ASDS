@@ -3,12 +3,13 @@ import numpy as np
 
 img = cv.imread("pic3.jpg")
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+blur = cv.GaussianBlur(gray, (5, 5), cv.BORDER_DEFAULT)
 canny = cv.Canny(img, 100, 200)
-canny_gray = cv.Canny(gray, 125, 175)
-blur = cv.GaussianBlur(canny_gray, (5, 5), cv.BORDER_DEFAULT)
+canny_gray = cv.Canny(blur, 125, 175)
+
 # find the contours
 contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
-contours_gray, hierarchies_gray = cv.findContours(blur, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
+contours_gray, hierarchies_gray = cv.findContours(canny_gray, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
 # draw contours on the image
 blank = np.zeros(img.shape, dtype="uint8")
 blank_gray = np.zeros(img.shape, dtype="uint8")
